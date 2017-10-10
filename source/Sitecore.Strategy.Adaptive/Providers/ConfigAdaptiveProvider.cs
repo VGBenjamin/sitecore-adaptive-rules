@@ -10,8 +10,11 @@ using Sitecore.Text;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Xml.Linq;
+using Sitecore.ContentSearch.Analytics.Models;
+using Sitecore.Rules;
 
 namespace Sitecore.Strategy.Adaptive.Providers
 {
@@ -108,7 +111,7 @@ namespace Sitecore.Strategy.Adaptive.Providers
             return macro;
         }
 
-        public override RuleCondition<T> GetRuleCondition<T>(Type type, AdaptiveConditionBase<T> adaptiveCondition, T ruleContext)
+        public override RuleCondition<T> GetRuleCondition<T>(Type type, BaseAdaptiveConditionBase<T> adaptiveCondition, T ruleContext)
         {
             Assert.ArgumentNotNull(type, "type");
             var selectorConfig = this.MacroConfiguration.GetMacroSelectorConfig(type);
@@ -120,6 +123,19 @@ namespace Sitecore.Strategy.Adaptive.Providers
             }
             var condition = selector.GetCondition<T>(type, adaptiveCondition, ruleContext);
             return condition;
+        }
+
+        public override Expression<Func<IndexedContact, bool>> GetRulePredicate<T>(Type type, BaseAdaptiveConditionBase<T> adaptiveCondition, T ruleContext)
+        {
+            Assert.ArgumentNotNull(type, "type");
+            var selectorConfig = this.MacroConfiguration.GetMacroSelectorConfig(type);
+            Assert.IsNotNull(selectorConfig, "selectorConfig");
+            var selector = selectorConfig.GetConditionSelector(type);
+            if (selector == null)
+            {
+                return null;
+            }
+            return selector.GetPredicate<T>(type, adaptiveCondition, ruleContext);
         }
     }
 }

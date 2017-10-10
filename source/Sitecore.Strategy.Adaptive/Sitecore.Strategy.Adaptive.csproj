@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,9 +42,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Sitecore.ContentSearch">
+      <HintPath>$(SitecoreLibDir)Sitecore.ContentSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.Analytics">
+      <HintPath>$(SitecoreLibDir)Sitecore.ContentSearch.Analytics.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>$(SitecoreLibDir)Sitecore.Kernel.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.SegmentBuilder">
+      <HintPath>$(SitecoreLibDir)Sitecore.SegmentBuilder.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -70,6 +81,7 @@
     <Compile Include="ConditionSelectors\TypeBased\NumberConditionSelector.cs" />
     <Compile Include="ConditionSelectors\TypeBased\IdConditionSelector.cs" />
     <Compile Include="ConditionSelectors\TypeBased\IConditionSelectorForType.cs" />
+    <Compile Include="ConditionSelectors\Utility\ConditionUtility.cs" />
     <Compile Include="Config\IMacroSelectorConfigForType.cs" />
     <Compile Include="Config\TypeBasedMacroSelectorConfig.cs" />
     <Compile Include="Config\MacroSelectorConfigForTypeBase.cs" />
@@ -92,9 +104,11 @@
     <Compile Include="Providers\AdaptiveProviderCollection.cs" />
     <Compile Include="Providers\AdaptiveProviderBase.cs" />
     <Compile Include="Rules\Conditions\AdaptiveConditionBase.cs" />
+    <Compile Include="Rules\Conditions\BaseAdaptiveConditionBase.cs" />
     <Compile Include="Rules\Conditions\IdCompareCondition.cs" />
     <Compile Include="Rules\Conditions\DateTimeCompareCondition.cs" />
     <Compile Include="Rules\Conditions\NumberCompareCondition.cs" />
+    <Compile Include="Rules\Conditions\SegmentationAdaptiveConditionBase.cs" />
     <Compile Include="Rules\Conditions\StringCompareCondition.cs" />
     <Compile Include="Items\AdaptiveTreeMacroSettingsItem.cs" />
     <Compile Include="Items\FieldIDs.cs" />
