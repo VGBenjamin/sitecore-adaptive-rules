@@ -38,12 +38,12 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
             var left = adaptiveCondition.GetLeftValue(ruleContext);
             if (left != null) 
             {
-                condition.LeftValue = double.Parse(left.ToString());
+                condition.LeftValue = float.Parse(left.ToString());
             }
             var right = adaptiveCondition.GetRightValue(ruleContext);
             if (right != null) 
             {
-                condition.RightValue= double.Parse(right.ToString());
+                condition.RightValue= float.Parse(right.ToString());
             }
             condition.OperatorId = adaptiveCondition.Operator.ToString();
             return condition;
@@ -56,14 +56,14 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
             object right = adaptiveCondition.GetRightValue(ruleContext);
             if (right == null)
                 return null;
-            int rightInt;
-            if (!int.TryParse(right.ToString(), out rightInt))
+            float rightInt;
+            if (!float.TryParse(right.ToString(), out rightInt))
             {
                 return null;
             }
 
             var conditionOperator = ConditionUtility.GetConditionOperatorById(adaptiveCondition.Operator.ToString());
-            return GetCompareExpression<int>(conditionOperator, c => (int)c[(ObjectIndexerKey)leftFacetName], rightInt);
+            return GetCompareExpression<float>(conditionOperator, c => (float)c[(ObjectIndexerKey)leftFacetName], rightInt);
         }        
     }
 }
