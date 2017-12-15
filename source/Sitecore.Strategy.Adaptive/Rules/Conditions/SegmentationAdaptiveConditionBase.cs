@@ -20,7 +20,7 @@ namespace Sitecore.Strategy.Adaptive.Rules.Conditions
         public override void Evaluate(T ruleContext, RuleStack stack)
         {
             var predicate = GetPredicate(ruleContext);
-            if (predicate == null)
+            if (predicate == null) 
             {
                 this.ApplyFilter(ruleContext, (Expression<Func<IndexedContact, bool>>)(c => false));
                 stack.Push(false);

@@ -17,7 +17,11 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
     public class StringConditionSelector : ConditionSelectorForTypeBase
     {
         public StringConditionSelector() 
-            :base(typeof (string))
+            :base(new HashSet<Type>()
+            {
+                typeof (string),
+                typeof(bool)                
+            })
         {
         }
 
@@ -55,21 +59,21 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
             {
                 return null;
             }
-            /*
-            if(adaptiveCondition.Operator == Sitecore.Strategy.Adaptive.Items.ItemIDs.BooleanOperatorTrue)
+
+            if (adaptiveCondition.Operator == Sitecore.Strategy.Adaptive.Items.ItemIDs.BooleanOperatorTrue)
             {
                 adaptiveCondition.Operator = Sitecore.Strategy.Adaptive.Items.ItemIDs.StringOperatorTrue;
-                return StringConditionOperator.Contains.Compare<IndexedContact>(
-                        c => (string) c[(ObjectIndexerKey)leftFacetName], right);
+                /*return StringConditionOperator.Contains.Compare<IndexedContact>(
+                        c => (string) c[(ObjectIndexerKey)leftFacetName], right);*/
             }
             else if (adaptiveCondition.Operator == Sitecore.Strategy.Adaptive.Items.ItemIDs.BooleanOperatorFalse)
             {
                 adaptiveCondition.Operator = Sitecore.Strategy.Adaptive.Items.ItemIDs.StringOperatorFalse;
-                return StringConditionOperator.Contains.Compare<IndexedContact>(
-                        c => (string)c[(ObjectIndexerKey)leftFacetName], right);
-            }*/
-
+                /*return StringConditionOperator.Contains.Compare<IndexedContact>(
+                        c => (string)c[(ObjectIndexerKey)leftFacetName], right);*/
+            }
             var conditionOperator = ConditionUtility.GetStringConditionOperatorById(adaptiveCondition.Operator.ToString());
+
             return conditionOperator.Compare<IndexedContact>(c => (string)c[(ObjectIndexerKey)leftFacetName], right);
         }
     }

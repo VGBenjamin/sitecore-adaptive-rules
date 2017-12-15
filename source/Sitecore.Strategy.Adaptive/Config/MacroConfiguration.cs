@@ -19,20 +19,27 @@ namespace Sitecore.Strategy.Adaptive.Config
         {
             this.MacroSelectorConfigsForItem = new HashSet<IMacroSelectorConfigForItem>();
             this.MacroSelectorConfigsForType = new Dictionary<Type, IMacroSelectorConfigForType>();
+
+            TypesMapping.Add(typeof(System.Int32), new HashSet<Type>
+            {
+                typeof(short),
+                typeof(ushort) ,
+                typeof(int) ,
+                typeof(uint) ,
+                typeof(long) ,
+                typeof(ulong) ,
+                typeof(float) ,
+                typeof(double)
+            });
+            TypesMapping.Add(typeof(System.String), new HashSet<Type>
+            {
+                typeof(string),
+                typeof(bool)
+            });
         }
         public IMacroSelectorForItem DefaultTreeSelector { get; set; }
 
-        private readonly HashSet<Type> _numericTypes = new HashSet<Type>()
-        {
-                typeof(short),
-                typeof(ushort) , 
-                typeof(int) , 
-                typeof(uint) ,
-                typeof(long) ,
-                typeof(ulong) , 
-                typeof(float) ,
-                typeof(double)         
-        };
+        protected Dictionary<Type, HashSet<Type>> TypesMapping { get; set; } = new Dictionary<Type, HashSet<Type>>();
      
         
         public HashSet<IMacroSelectorConfigForItem> MacroSelectorConfigsForItem { get; private set; }
@@ -88,9 +95,9 @@ namespace Sitecore.Strategy.Adaptive.Config
 
         public virtual IEnumerable<Type> ExplodeType(Type type)
         {
-            if (_numericTypes.Contains(type))
+            if (TypesMapping.ContainsKey(type))
             {
-                return _numericTypes;
+                return TypesMapping[type];
             }
             return new Type[] {type};
         }
