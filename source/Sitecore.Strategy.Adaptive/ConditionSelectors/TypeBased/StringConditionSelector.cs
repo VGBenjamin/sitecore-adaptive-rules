@@ -54,7 +54,7 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
         {
             var leftFacetName = adaptiveCondition.GetLeftValue(ruleContext).ToString();
 
-            var right = adaptiveCondition.GetRightValue(ruleContext).ToString();
+            var right = adaptiveCondition.GetRightValue(ruleContext)?.ToString();
             if (right == null)
             {
                 return null;
