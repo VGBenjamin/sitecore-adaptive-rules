@@ -10,6 +10,7 @@ using System.Web;
 using Sitecore.Analytics.Rules.SegmentBuilder;
 using Sitecore.ContentSearch.Analytics.Models;
 using Sitecore.ContentSearch.SearchTypes;
+using Sitecore.Diagnostics;
 using Sitecore.Strategy.Adaptive.ConditionSelectors.Utility;
 
 namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
@@ -28,6 +29,17 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
         public override RuleCondition<T> GetCondition<T>(Type type, BaseAdaptiveConditionBase<T> adaptiveCondition, T ruleContext) 
         {
             var condition = new StringCompareCondition<T>();
+            if (adaptiveCondition == null)
+            {
+                Log.Error($"{nameof(adaptiveCondition)} cannot be null in GetCondition. For type: '{type}'", this);
+                throw new NullReferenceException($"{nameof(adaptiveCondition)} cannot be null");
+            }
+            if (ruleContext == null)
+            {
+                Log.Error($"{nameof(ruleContext)} cannot be null in GetCondition. For type: '{type}'", this);
+                throw new NullReferenceException($"{nameof(ruleContext)} cannot be null");
+            }
+
             var left = adaptiveCondition.GetLeftValue(ruleContext);
             if (left != null) 
             {

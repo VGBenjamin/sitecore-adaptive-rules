@@ -20,11 +20,11 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.Utility
             if(baseConditionUtilityType == null)
                 Log.Error("Cannot load the type: 'Sitecore.Rules.Conditions.ConditionsUtility'", typeof(ConditionUtility));
 
-            getStringConditionOperatorByIdMethodInfo = baseConditionUtilityType.GetMethod("GetStringConditionOperatorById", BindingFlags.NonPublic | BindingFlags.Static);
+            getStringConditionOperatorByIdMethodInfo = baseConditionUtilityType.GetMethod("GetStringConditionOperatorById", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
             if (getStringConditionOperatorByIdMethodInfo == null)
                 Log.Error("Cannot find the method: 'GetStringConditionOperatorById' in the type 'Sitecore.Rules.Conditions.ConditionsUtility'", typeof(ConditionUtility));
 
-            getConditionOperatorByIdMethodInfo = baseConditionUtilityType.GetMethod("GetConditionOperatorById", BindingFlags.NonPublic | BindingFlags.Static);
+            getConditionOperatorByIdMethodInfo = baseConditionUtilityType.GetMethod("GetConditionOperatorById", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
             if (getConditionOperatorByIdMethodInfo == null)
                 Log.Error("Cannot find the method: 'GetConditionOperatorById' in the type 'Sitecore.Rules.Conditions.ConditionsUtility'", typeof(ConditionUtility));
         }
