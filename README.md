@@ -1,3 +1,6 @@
+# Changes from the original version
+This module is a fork from [adamconn/sitecore-adaptive-rules](https://github.com/adamconn/sitecore-adaptive-rules). In the original version it is possible to use those rules to personalize content on the site but I have added the possibility to use it in the list manager to create the segmented lists of contacts.
+
 # sitecore-adaptive-rules
 This module adds support for adaptive rules for the Sitecore Rules Engine. Adaptive rules are useful when properties on conditions and actions have dependencies on one another. 
 
