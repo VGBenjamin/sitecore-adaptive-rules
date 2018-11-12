@@ -1,12 +1,15 @@
+# Changes from the original version
+This module is a fork from [adamconn/sitecore-adaptive-rules](https://github.com/adamconn/sitecore-adaptive-rules). In the original version it is possible to use those rules to personalize content on the site but I have added the possibility to use it in the list manager to create the segmented lists of contacts.
+
 # sitecore-adaptive-rules
 This module adds support for adaptive rules for the Sitecore Rules Engine. Adaptive rules are useful when properties on conditions and actions have dependencies on one another. 
 
 You can [watch a video](http://youtu.be/M2m2vJ5diEI) that shows what this module does.
 
 ### Module download
-The adaptive rules installation package is available [here](https://github.com/adamconn/sitecore-adaptive-rules/tree/master/sitecore/).
+The adaptive rules installation package is available [here](https://github.com/vgbenjamin/sitecore-adaptive-rules/tree/master/sitecore/).
 
-A package that includes sample conditions that demonstrate how to use adaptive rules is available [here](https://github.com/adamconn/sitecore-adaptive-rules/tree/master/sitecore/).
+A package that includes sample conditions that demonstrate how to use adaptive rules is available [here](https://github.com/vgbenjamin/sitecore-adaptive-rules/tree/master/sitecore/).
 
 ### Sample use case
 For example, imagine a case where an author wants to personalize a page based a video the visitor watched the last time he visited the site. If the visitor watched a video about warm-weather vacation destinations the author wants the visitor to see a promotion about travel to tropical islands. If the visitor watched videos about skiing and snowboarding the author wants the visitor to see a promotion about travel with ski resorts.
