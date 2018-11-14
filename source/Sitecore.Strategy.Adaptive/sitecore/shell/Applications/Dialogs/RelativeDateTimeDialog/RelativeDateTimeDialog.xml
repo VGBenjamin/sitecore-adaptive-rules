@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <Sitecore.Shell.Applications.Dialogs.RelativeDateTimeDialog>
+    <FormDialog Header="Date time selection" Text="Select a date time" Icon="People/32x32/clock.png">
+      <CodeBeside Type="Sitecore.Strategy.Adaptive.sitecore.shell.Applications.Dialogs.RelativeDateTimeDialog.RelativeDateTimeDialog, Sitecore.Strategy.Adaptive" />
+      <Script Src="/sitecore/shell/Controls/Lib/jQuery/jquery-1.12.4.min.js"></Script>
+      <Script type="text/javascript">if (!window.$sc) $sc = jQuery.noConflict();</Script>
+
+      <Border class="scRadioGroup" GridPanel.width="550px" ID="RelativeDateTimeMain">
+        <Border style="border: 1px solid #CCCCCC; padding: 10px 10px 10px 10px; margin-bottom: 10px;">
+          <b>
+            <Radiobutton ID="Fix" Header="Fix" Width="100%" Value="Fix" Name="TypeOfDate" />
+          </b>
+          <br />
+          <br />
+
+          <Border class="fixDateInputs">
+            Date :
+            <DatePicker ID="AbsoluteDate" Format="dd/MM/yyyy">
+            </DatePicker>
+            <Checkbox ID="UseAbsoluteHours"></Checkbox>
+            <TimePicker ID="AbsoluteTime" Format="HH:mm"></TimePicker>
+          </Border>
+        </Border>
+
+        <Border  style="border: 1px solid #CCCCCC; padding: 10px 10px 10px 10px;">
+          <b>
+            <Radiobutton ID="Computed" Header="Computed" Width="100%" Value="Computed" Name="TypeOfDate" />
+          </b>
+          <br />
+          <br />
+          <Border class="computedDateInputs">
+            Number of days :
+            <Combobox ID="Sign" Width="60">
+              <ListItem ID="Add" Value="+">+</ListItem>
+              <ListItem ID="Substract" Value="-">-</ListItem>
+            </Combobox>
+
+            <Edit ID="Number" Width="100"></Edit>
+
+            <Combobox ID="Units" Width="90">
+              <ListItem ID="Hours" Value="h">Hours</ListItem>
+              <ListItem ID="Days" Value="d">Days</ListItem>
+              <ListItem ID="Months" Value="m">Months</ListItem>
+              <ListItem ID="Years" Value="y">Years</ListItem>
+            </Combobox>
+          </Border>
+        </Border>
+      </Border>
+
+
+      <script type="text/javascript">
+        /*var relativeDateTimeMain = $sc(document.getElementById('RelativeDateTimeMain'));
+
+        var typeOfDateControls = relativeDateTimeMain.find("input[value='TypeOfDate']");
+        var fixDateInputs = relativeDateTimeMain.find(".fixDateInputs input");
+        var computedDateInputs = relativeDateTimeMain.find(".computedDateInputs input");
+
+        typeOfDateControls.change(function (element) {
+        if(element.attr('id') == "Fix") {
+        fixDateInputs.prop("disabled", false );
+        computedDateInputs.prop("disabled", true );
+        } else {
+        fixDateInputs.prop("disabled", true );
+        computedDateInputs.prop("disabled", false );
+        }
+        });*/
+
+      </script>
+
+    </FormDialog>
+  </Sitecore.Shell.Applications.Dialogs.RelativeDateTimeDialog>
+</control>

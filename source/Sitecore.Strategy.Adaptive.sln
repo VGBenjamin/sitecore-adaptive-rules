@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Strategy.Adaptive", "Sitecore.Strategy.Adaptive\Sitecore.Strategy.Adaptive.csproj", "{2886805D-F97E-4CAE-829C-9E4FF594A8B1}"
 EndProject
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{1ABEB349-783
 		SitecoreReferences\Lib\Sitecore.Kernel.dll = SitecoreReferences\Lib\Sitecore.Kernel.dll
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Strategy.Adaptive.Test", "Sitecore.Strategy.Adaptive.Test\Sitecore.Strategy.Adaptive.Test.csproj", "{F4132AB2-1D6B-4E9F-9D8C-763573DEBD7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,11 +34,18 @@ Global
 		{94456A40-BBFB-4CFD-B0FF-D4C3D5C08659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94456A40-BBFB-4CFD-B0FF-D4C3D5C08659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94456A40-BBFB-4CFD-B0FF-D4C3D5C08659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4132AB2-1D6B-4E9F-9D8C-763573DEBD7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4132AB2-1D6B-4E9F-9D8C-763573DEBD7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4132AB2-1D6B-4E9F-9D8C-763573DEBD7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4132AB2-1D6B-4E9F-9D8C-763573DEBD7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1ABEB349-783F-4B06-908B-4406F9668BCF} = {1891B585-BFD0-455B-A0D4-D31CD3984702}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DEBBEA4-5D48-4937-9923-0F3F330BBA97}
 	EndGlobalSection
 EndGlobal
