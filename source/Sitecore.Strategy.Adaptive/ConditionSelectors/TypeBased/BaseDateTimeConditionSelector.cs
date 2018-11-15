@@ -66,7 +66,7 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
 
             if (relative.StartsWith("$now")) //Fixed date
             {
-                var regex = new Regex("$now(?<sign>[+-])(?<number>[0-9]+)(?<unit>[dhmy])");
+                var regex = new Regex("^\\$now(?<sign>[+-])(?<number>[0-9]+)(?<unit>[dhmy])$");
                 var match = regex.Match(relative);
                 if (match == null)
                 {
@@ -95,9 +95,10 @@ namespace Sitecore.Strategy.Adaptive.ConditionSelectors.TypeBased
                     }
                 }
             }            
-            else if (relative.StartsWith("F")) //Fixed date
-            {                
-                DateTime.TryParseExact(relative.Substring(2, relative.Length -2), RelativeDateTimeDialog.SYSTEM_DATETIME_FORMAT, CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+            else //Fixed date
+            {
+                if (!DateTime.TryParseExact(relative, RelativeDateTimeDialog.SYSTEM_DATETIME_FORMAT, CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+                    Log.Error($"The fix date format is not correct: {relative}", this);
             }
             return date;
         }

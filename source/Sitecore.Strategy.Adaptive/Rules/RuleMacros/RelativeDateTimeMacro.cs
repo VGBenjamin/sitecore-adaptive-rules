@@ -16,10 +16,12 @@ namespace Sitecore.Strategy.Adaptive.Rules.RuleMacros
         {
             Assert.ArgumentNotNull(element, nameof(element));
             Assert.ArgumentNotNull(name, nameof(name));
-            Assert.ArgumentNotNull(parameters, nameof(parameters));
+            Assert.ArgumentNotNull(parameters, nameof(parameters)); 
 
             Assert.ArgumentNotNull(value, nameof(value));
-            SheerResponse.ShowModalDialog(new UrlString(UIUtil.GetUri("control:Sitecore.Shell.Applications.Dialogs.RelativeDateTimeDialog")).ToString(), "580px", "475px", string.Empty, true);
+            var url = new UrlString(UIUtil.GetUri("control:Sitecore.Shell.Applications.Dialogs.RelativeDateTimeDialog"));
+            url.Add("default", value);
+            SheerResponse.ShowModalDialog(url.ToString(), "580px", "475px", value, true);
 
         }
 

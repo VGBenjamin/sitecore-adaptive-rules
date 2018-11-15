@@ -9,7 +9,7 @@
       <Border class="scRadioGroup" GridPanel.width="550px" ID="RelativeDateTimeMain">
         <Border style="border: 1px solid #CCCCCC; padding: 10px 10px 10px 10px; margin-bottom: 10px;">
           <b>
-            <Radiobutton ID="Fix" Header="Fix" Width="100%" Value="Fix" Name="TypeOfDate" />
+            <Radiobutton ID="Fix" Header="Fix" Width="100%" Value="Fix" Name="TypeOfDate" Checked="true" />
           </b>
           <br />
           <br />
@@ -19,7 +19,7 @@
             <DatePicker ID="AbsoluteDate" Format="dd/MM/yyyy">
             </DatePicker>
             <Checkbox ID="UseAbsoluteHours"></Checkbox>
-            <TimePicker ID="AbsoluteTime" Format="HH:mm"></TimePicker>
+            <TimePicker ID="AbsoluteTime" Format="HH:mm" Value="00:00"></TimePicker>
           </Border>
         </Border>
 
@@ -36,7 +36,7 @@
               <ListItem ID="Substract" Value="-">-</ListItem>
             </Combobox>
 
-            <Edit ID="Number" Width="100"></Edit>
+            <Edit ID="Number" Width="100" Value="1"></Edit>
 
             <Combobox ID="Units" Width="90">
               <ListItem ID="Hours" Value="h">Hours</ListItem>
